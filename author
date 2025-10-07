@@ -1,0 +1,10 @@
+INSERT INTO authors(author_id, author_name, email) VALUES (1,'Sasi','sasi@gmail.com'),
+(2,'Suresh','suresh@gmail.com'),
+(3,'Sumesh','sumesh@gmail.com');
+ALTER TABLE authors
+ADD PRIMARY KEY(author_id);
+INSERT INTO novel(book_id, book_title, author_id) VALUES (1,'Drishyam',1),
+(2,'Thudarum',2),
+(3,'Mari',3);
+ALTER TABLE novel
+ADD FOREIGN KEY (author_id) REFERENCES authors(author_id);
