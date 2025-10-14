@@ -1,0 +1,41 @@
+INSERT INTO employee VALUES
+(1, 'Raju', 'Sales', 1),
+(2, 'Sangeetha', 'Sales', 3),
+(3, 'Vinay', 'Operations', 8),
+(4, 'Abey', 'Packing', 2),
+(5, 'Thomas', 'Packing', 1),
+(6, 'Muneer', 'Operations', 7),
+(7, 'Aparna', 'Sales', 3),
+(8, 'Abid', 'Operations', 9),
+(9, 'Fathima', 'Sales', 11),
+(10, 'Varghese', 'Operations', 14);
+INSERT INTO exam  VALUES
+(1, 2, 'Pass'),
+(2, 5, 'Fail'),
+(3, 1, 'Fail'),
+(4, 8, 'Pass'),
+(5, 3, 'Pass'),
+(6, 1, 'Pass'),
+(7, 6, 'Fail'),
+(8, 9, 'Pass'),
+(9, 10, 'Pass');
+SELECT name
+FROM employee
+WHERE department = 'Sales' AND Leaves > 5;
+SELECT COUNT(name)
+FROM employee
+WHERE department = 'Operations';
+SELECT department, COUNT(name)
+FROM employee
+GROUP BY department;
+SELECT department
+FROM employee
+GROUP BY department
+HAVING SUM(Leaves) > 10;
+SELECT e.name
+FROM employee e
+JOIN exam ex ON e.id = ex.employee_id
+WHERE LOWER(ex.exam_status) = 'pass';
+SELECT name
+FROM employee
+WHERE id NOT IN (SELECT employee_id FROM exam);
